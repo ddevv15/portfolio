@@ -23,15 +23,15 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+        <h2 className="text-3xl font-bold text-center mb-12 text-white">
           Get In Touch
         </h2>
         <div className="max-w-lg mx-auto">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name" className="block text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-white mb-2">
                 Name
               </label>
               <input
@@ -43,7 +43,7 @@ function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-white mb-2">
                 Email
               </label>
               <input
@@ -55,7 +55,7 @@ function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-gray-700 mb-2">
+              <label htmlFor="message" className="block text-white mb-2">
                 Message
               </label>
               <textarea
