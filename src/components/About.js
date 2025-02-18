@@ -16,10 +16,16 @@ function About() {
             />
           </div>
           <div>
-            <p className="text-white mb-6">
-              I'm a passionate frontend developer with a keen eye for design and
-              user experience. I love creating beautiful and functional websites
-              that make a difference.
+            <p className="text-white mb-6 text-3xl">
+              Hi, I'm Dev Shah, a Computer Science major at the University of
+              Illinois Chicago with a concentration in Software Engineering and
+              a minor in Mathematics. Passionate about software development, I
+              have experience in full-stack web development, security
+              vulnerability assessments, and AI-driven solutions. My work spans
+              from optimizing large-scale applications to building innovative
+              projects like face recognition-based authentication kiosks. I
+              thrive on problem-solving and collaboration, ensuring efficient
+              and scalable solutions in every project.
             </p>
             <div className="flex flex-wrap gap-4">
               <span className="px-4 py-2 bg-cyan-100 text-cyan-700 rounded-full">

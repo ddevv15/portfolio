@@ -49,6 +49,19 @@ function Projects() {
               </a>
             </div>
           </div>
+          {/* Project Card 4 */}
+          <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+            <div className="aspect-video bg-gray-100"></div>
+            <div className="p-6">
+              <h3 className="font-semibold text-xl mb-2">Project four</h3>
+              <p className="text-gray-600 mb-4">
+                A brief description of the project and its key features.
+              </p>
+              <a href="#" className="text-cyan-700 hover:text-cyan-800">
+                View Project →
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
