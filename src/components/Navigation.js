@@ -18,7 +18,8 @@ function Navigation() {
 
   return React.createElement(
     "nav",
-    { className: "fixed w-full bg-transparent backdrop-blur-sm z-50" },
+    //  { className: "fixed w-full bg-transparent backdrop-blur-sm z-50" },
+    { className: "fixed w-full bg-transparent  z-50" },
     React.createElement(
       "div",
       { className: "container mx-auto px-4 py-4" },
@@ -37,7 +38,7 @@ function Navigation() {
         React.createElement(
           "div",
           { className: "hidden md:flex space-x-8" },
-          ["Home", "About", "Projects", "Contact"].map((item) =>
+          ["Home", "About", "Projects", "Contact", "Resume"].map((item) =>
             React.createElement(
               "a",
               {

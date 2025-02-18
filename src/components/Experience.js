@@ -11,12 +11,23 @@ const experienceData = [
   },
   {
     id: 2,
-    title: "Frontend Developer Intern",
-    company: "WebCraft Studios",
-    duration: "May 2019 - Aug 2019",
+    title: "General Office Aide",
+    company: "University of Illinois Chicago",
+    duration: "June 2023 - Present",
     description:
-      "Assisted in the development of responsive web designs. Implemented UI components using HTML, CSS, and JavaScript.",
-    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      //  "Assisted in the development of responsive web designs. Implemented UI components using HTML, CSS, and JavaScript.",
+      "Managed processing of over 1,500 identification cards and improved data entry efficiency, reducing processing time by 30%. Oversaw Dragon Dollar$ and meal plan programs, increasing participation by 40% in one academic year.",
+    technologies: [],
+  },
+  {
+    id: 3,
+    title: "Intramural Sports Official",
+    company: "University of Illinois Chicago",
+    duration: "April 2023 - July 2023",
+    description:
+      //  "Assisted in the development of responsive web designs. Implemented UI components using HTML, CSS, and JavaScript.",
+      "Officiated 150+ intramural games, ensuring compliance with rules and reducing conflicts by 30%. Led pre-game meetings to promote inclusivity, improving participant feedback by 25%.",
+    technologies: [],
   },
 ];
 
