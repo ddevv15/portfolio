@@ -28,7 +28,7 @@ function Hero() {
       React.createElement(
         "h2",
         { className: "text-3xl md:text-5xl font-semibold text-white/90 mb-8" },
-        "Frontend Developer & UI/UX Enthusiast"
+        "Software Developer/ AI Enthusiast"
       ),
       React.createElement(
         "p",
