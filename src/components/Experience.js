@@ -26,7 +26,7 @@ const experienceData = [
     duration: "April 2023 - July 2023",
     description:
       //  "Assisted in the development of responsive web designs. Implemented UI components using HTML, CSS, and JavaScript.",
-      "Officiated 150+ intramural games, ensuring compliance with rules and reducing conflicts by 30%. Led pre-game meetings to promote inclusivity, improving participant feedback by 25%.",
+      "Officiated 10+ intramural games, ensuring compliance with rules and reducing conflicts by 15%. Led pre-game meetings to promote inclusivity, improving participant feedback by 25%.",
     technologies: [],
   },
 ];
