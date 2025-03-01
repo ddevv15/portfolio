@@ -1,88 +1,4 @@
-// import React from "react";
-
-// function Projects() {
-//   return (
-//     <section id="projects" className="py-20 bg-black">
-//       <div className="container mx-auto px-4">
-//         <h2 className="text-3xl font-bold text-center mb-12 text-white">
-//           My Projects
-//         </h2>
-//         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-//           {/* Project Card 1 */}
-//           <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-//             <div className="aspect-video bg-gray-100"></div>
-//             <div className="p-6">
-//               <h3 className="font-semibold text-xl mb-2">FaceWay</h3>
-//               <p className="text-gray-600 mb-4">
-//                 Face Way is a kiosk app that uses real-time face recognition to
-//                 deliver personalized experiences and integrated loyalty rewards
-//               </p>
-//               <a
-//                 href="https://github.com/ddevv15/FaceWay"
-//                 className="text-cyan-700 hover:text-cyan-800"
-//               >
-//                 View Project →
-//               </a>
-//             </div>
-//           </div>
-
-//           {/* Project Card 2 */}
-//           <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-//             <div className="aspect-video bg-gray-100"></div>
-//             <div className="p-6">
-//               <h3 className="font-semibold text-xl mb-2">GenVars</h3>
-//               <p className="text-gray-600 mb-4">
-//                 GenVARS is an automated vulnerability exploitation framework
-//                 that leverages SSH, Telnet, and GPT-4o's capabilities to
-//                 generate detailed reports and deliver actionable exploitation
-//                 steps in controlled environments.
-//               </p>
-//               <a
-//                 href="https://github.com/ddevv15/GenVars"
-//                 className="text-cyan-700 hover:text-cyan-800"
-//               >
-//                 View Project →
-//               </a>
-//             </div>
-//           </div>
-
-//           {/* Project Card 3 */}
-//           <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-//             <div className="aspect-video bg-gray-100"></div>
-//             <div className="p-6">
-//               <h3 className="font-semibold text-xl mb-2">Project Three</h3>
-//               <p className="text-gray-600 mb-4">
-//                 A brief description of the project and its key features.
-//               </p>
-//               <a href="#" className="text-cyan-700 hover:text-cyan-800">
-//                 View Project →
-//               </a>
-//             </div>
-//           </div>
-//           {/* Project Card 4 */}
-//           <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-//             <div className="aspect-video bg-gray-100"></div>
-//             <div className="p-6">
-//               <h3 className="font-semibold text-xl mb-2">Project four</h3>
-//               <p className="text-gray-600 mb-4">
-//                 A brief description of the project and its key features.
-//               </p>
-//               <a href="#" className="text-cyan-700 hover:text-cyan-800">
-//                 View Project →
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Projects;
-
 import React from "react";
-
-// Added image imports
 
 function Projects() {
   return (
@@ -109,6 +25,7 @@ function Projects() {
               <a
                 href="https://github.com/ddevv15/FaceWay"
                 className="text-cyan-700 hover:text-cyan-800"
+                target="_blank"
               >
                 View Project →
               </a>
@@ -134,6 +51,7 @@ function Projects() {
               <a
                 href="https://github.com/ddevv15/GenVars"
                 className="text-cyan-700 hover:text-cyan-800"
+                target="_blank"
               >
                 View Project →
               </a>
@@ -153,7 +71,11 @@ function Projects() {
               <p className="text-gray-600 mb-4">
                 A brief description of the project and its key features.
               </p>
-              <a href="#" className="text-cyan-700 hover:text-cyan-800">
+              <a
+                href="#"
+                className="text-cyan-700 hover:text-cyan-800"
+                target="_blank"
+              >
                 View Project →
               </a>
             </div>
@@ -176,6 +98,7 @@ function Projects() {
               </p>
               <a
                 href="https://github.com/ddevv15/TaskFlow"
+                target="_blank"
                 className="text-cyan-700 hover:text-cyan-800"
               >
                 View Project →
@@ -200,6 +123,7 @@ function Projects() {
               <a
                 href="https://github.com/ddevv15/OpenStreetMaps"
                 className="text-cyan-700 hover:text-cyan-800"
+                target="_blank"
               >
                 View Project →
               </a>
