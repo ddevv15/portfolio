@@ -39,16 +39,29 @@ function Navigation() {
           "div",
           { className: "hidden md:flex space-x-8" },
           ["Home", "About", "Projects", "Contact", "Resume"].map((item) =>
-            React.createElement(
-              "a",
-              {
-                key: item,
-                href: `#${item.toLowerCase()}`,
-                onClick: (e) => handleSmoothScroll(e, item.toLowerCase()),
-                className: "text-white hover:text-yellow-300 transition",
-              },
-              item
-            )
+            item === "Resume"
+              ? React.createElement(
+                  "a",
+                  {
+                    key: item,
+                    href: "/resume.pdf",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    //download: "resume.pdf",
+                    className: "text-white hover:text-yellow-300 transition",
+                  },
+                  item
+                )
+              : React.createElement(
+                  "a",
+                  {
+                    key: item,
+                    href: `#${item.toLowerCase()}`,
+                    onClick: (e) => handleSmoothScroll(e, item.toLowerCase()),
+                    className: "text-white hover:text-yellow-300 transition",
+                  },
+                  item
+                )
           )
         ),
         React.createElement(
@@ -65,17 +78,30 @@ function Navigation() {
         React.createElement(
           "div",
           { className: "container mx-auto px-4 py-4 flex flex-col space-y-4" },
-          ["Home", "About", "Projects", "Contact"].map((item) =>
-            React.createElement(
-              "a",
-              {
-                key: item,
-                href: `#${item.toLowerCase()}`,
-                onClick: (e) => handleSmoothScroll(e, item.toLowerCase()),
-                className: "text-white hover:text-yellow-300 transition",
-              },
-              item
-            )
+          ["Home", "About", "Projects", "Contact", "Resume"].map((item) =>
+            item === "Resume"
+              ? React.createElement(
+                  "a",
+                  {
+                    key: item,
+                    href: "/resume.pdf",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    //download: "resume.pdf",
+                    className: "text-white hover:text-yellow-300 transition",
+                  },
+                  item
+                )
+              : React.createElement(
+                  "a",
+                  {
+                    key: item,
+                    href: `#${item.toLowerCase()}`,
+                    onClick: (e) => handleSmoothScroll(e, item.toLowerCase()),
+                    className: "text-white hover:text-yellow-300 transition",
+                  },
+                  item
+                )
           )
         )
       )

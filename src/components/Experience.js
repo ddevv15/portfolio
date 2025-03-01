@@ -6,7 +6,7 @@ const experienceData = [
     duration: "July 2024 - September 2024",
     description:
       //   "Developed and maintained web applications using React.js and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-      "Led the migration of a government healthcare application from AngularJS to ReactJS, improving load times by 40%. Worked with a team of five developers to integrate modern UI components, increasing user satisfaction by 30%.",
+      "Led the migration of a government healthcare application from AngularJS to ReactJS, improving load times by 40%. Worked with a team of five developers to integrate modern UI components, increasing user satisfaction by 10%.",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
@@ -16,7 +16,7 @@ const experienceData = [
     duration: "June 2023 - Present",
     description:
       //  "Assisted in the development of responsive web designs. Implemented UI components using HTML, CSS, and JavaScript.",
-      "Managed processing of over 1,500 identification cards and improved data entry efficiency, reducing processing time by 30%. Oversaw Dragon Dollar$ and meal plan programs, increasing participation by 40% in one academic year.",
+      "Managed processing of over 1000 identification cards and improved data entry efficiency, reducing processing time by 10%. Oversaw Dragon Dollar$ and meal plan programs, increasing participation by 10% in one academic year.",
     technologies: [],
   },
   {
@@ -26,7 +26,7 @@ const experienceData = [
     duration: "April 2023 - July 2023",
     description:
       //  "Assisted in the development of responsive web designs. Implemented UI components using HTML, CSS, and JavaScript.",
-      "Officiated 10+ intramural games, ensuring compliance with rules and reducing conflicts by 15%. Led pre-game meetings to promote inclusivity, improving participant feedback by 25%.",
+      "Officiated 10+ intramural games, ensuring compliance with rules and reducing conflicts by 15%. Led pre-game meetings to promote inclusivity, improving participant feedback by 15%.",
     technologies: [],
   },
 ];
