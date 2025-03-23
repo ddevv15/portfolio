@@ -38,7 +38,7 @@ function Navigation() {
         React.createElement(
           "div",
           { className: "hidden md:flex space-x-8" },
-          ["Home", "About", "Projects", "Contact", "Resume"].map((item) =>
+          ["Home", "About", "Projects", "Resume"].map((item) =>
             item === "Resume"
               ? React.createElement(
                   "a",
@@ -78,7 +78,7 @@ function Navigation() {
         React.createElement(
           "div",
           { className: "container mx-auto px-4 py-4 flex flex-col space-y-4" },
-          ["Home", "About", "Projects", "Contact", "Resume"].map((item) =>
+          ["Home", "About", "Projects", "Resume"].map((item) =>
             item === "Resume"
               ? React.createElement(
                   "a",
