@@ -61,7 +61,7 @@ function Projects() {
           </div>
 
           {/* Project Card 3 */}
-          <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+          <div className="bg-white rounded-lg  overflow-hidden shadow-md hover:shadow-lg transition">
             {/* Changed: Replaced placeholder div with an img tag */}
             <img
               src="/images/three.jpg"
