@@ -26,6 +26,7 @@ function Projects() {
                 href="https://github.com/ddevv15/FaceWay"
                 className="text-cyan-700 hover:text-cyan-800"
                 target="_blank"
+                rel="noreferrer"
               >
                 View Project →
               </a>
@@ -52,6 +53,7 @@ function Projects() {
                 href="https://github.com/ddevv15/GenVars"
                 className="text-cyan-700 hover:text-cyan-800"
                 target="_blank"
+                rel="noreferrer"
               >
                 View Project →
               </a>
@@ -73,6 +75,7 @@ function Projects() {
                 href="#"
                 className="text-cyan-700 hover:text-cyan-800"
                 target="_blank"
+                rel="noreferrer"
               >
                 View Project →
               </a>
@@ -97,6 +100,7 @@ function Projects() {
               <a
                 href="https://github.com/ddevv15/TaskFlow"
                 target="_blank"
+                rel="noreferrer"
                 className="text-cyan-700 hover:text-cyan-800"
               >
                 View Project →
@@ -122,6 +126,7 @@ function Projects() {
                 href="https://github.com/ddevv15/OpenStreetMaps"
                 className="text-cyan-700 hover:text-cyan-800"
                 target="_blank"
+                rel="noreferrer"
               >
                 View Project →
               </a>
