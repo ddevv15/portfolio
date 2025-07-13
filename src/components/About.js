@@ -1,6 +1,15 @@
 import React from "react";
+import ProfileCard from "./ProfileCard";
 
 function About() {
+  // Function to scroll to contact section when contact button is clicked
+  const handleContactClick = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -8,11 +17,17 @@ function About() {
           About Me
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-square bg-gray-100 rounded-lg">
-            <img
-              src="/images/dev_headshot.jpg"
-              alt="Profile"
-              className="object-cover rounded-lg"
+          <div className="flex justify-center">
+            <ProfileCard
+              name="Dev Shah"
+              title="Software Developer"
+              handle="ddevv15"
+              status="Available for Work"
+              contactText="Contact Me"
+              avatarUrl="/images/vaaniyo.jpg"
+              showUserInfo={true}
+              enableTilt={true}
+              onContactClick={handleContactClick}
             />
           </div>
           <div>
