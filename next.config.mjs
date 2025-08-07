@@ -6,17 +6,25 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  output: "export",
+  trailingSlash: true,
+  experimental: {
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
+  },
   images: {
-    unoptimized: false, // Enable optimization for better performance
+    unoptimized: true, // Required for static export
     formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
   },
-  // Removed experimental CSS optimization due to missing 'critters' dependency
-  // experimental: {
-  //   optimizeCss: true,
-  // },
   // Exclude large video files from build processing
   webpack: (config) => {
     config.module.rules.push({

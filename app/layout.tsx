@@ -40,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${sourceCodePro.variable} font-mono antialiased`} suppressHydrationWarning={true}>{children}</body>
+      <body className={`${sourceCodePro.variable} font-mono antialiased dark`} suppressHydrationWarning={true}>{children}</body>
     </html>
   )
 }

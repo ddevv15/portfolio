@@ -1,5 +1,4 @@
 import React from "react";
-import Lightning from "./Lightning";
 
 interface SocialLinkProps {
   href: string;
@@ -37,13 +36,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       id="home"
       className={`relative min-h-screen flex items-center justify-center overflow-hidden ${className || ''}`.trim()}
     >
-      <Lightning
-        hue={280} // Purple hue
-        xOffset={0}
-        speed={0.5}
-        intensity={1.5} // Slightly increased intensity for better purple visibility
-        size={1}
-      />
       <div
         className="container mx-auto px-4 py-8 text-center z-10"
         style={{ maxWidth: "1200px" }}

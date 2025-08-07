@@ -9,7 +9,7 @@ export default function HomePage() {
       <div className="min-h-screen flex flex-col justify-center items-center text-center px-4">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <pre className="text-green-400 text-xs md:text-sm lg:text-base leading-tight">
+            <pre className="text-green-400 text-xs md:text-sm lg:text-base leading-tight ascii-art">
 {`██████╗ ███████╗██╗   ██╗    ███████╗██╗  ██╗ █████╗ ██╗  ██╗
   ██╔══██╗██╔════╝██║   ██║    ██╔════╝██║  ██║██╔══██╗██║  ██║
   ██║  ██║█████╗  ██║   ██║    ███████╗███████║███████║███████║
