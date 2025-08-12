@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from 'next/link'
 import PageLayout from '@/components/page-layout'
 
 export default function HomePage() {
@@ -37,24 +38,24 @@ export default function HomePage() {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <a href="/about" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
+            <Link href="/about" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
               About
-            </a>
-            <a href="/skills" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
+            </Link>
+            <Link href="/skills" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
               Skills
-            </a>
-            <a href="/projects" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
+            </Link>
+            <Link href="/projects" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
               Projects
-            </a>
-            <a href="/experience" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
+            </Link>
+            <Link href="/experience" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
               Experience
-            </a>
-            <a href="/education" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
+            </Link>
+            <Link href="/education" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
               Education
-            </a>
-            <a href="/contact" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
+            </Link>
+            <Link href="/contact" className="border border-green-400 hover:bg-green-400 hover:text-black transition-colors p-4 rounded">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>
