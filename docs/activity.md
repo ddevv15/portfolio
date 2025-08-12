@@ -1029,3 +1029,28 @@ The gh-pages branch shows incorrect nesting:
 4. **Configured proper basePath/assetPrefix** for /portfolio route
 
 **Status**: Deployment fixes applied, waiting for testing to confirm resolution.
+
+### User Query: "remove all the current files i wish to start from scratch"
+
+**COMPLETE PROJECT RESET:**
+
+✅ **Full Directory Cleanup:**
+
+- Removed all project files and directories except `.git/` and `.github/`
+- Preserved git repository history and GitHub Actions workflows
+- Clean slate ready for fresh project development
+
+**Files Preserved:**
+
+- `.git/` - Complete repository history and branches
+- `.github/workflows/nextjs.yml` - GitHub Actions deployment workflow
+
+**Files Removed:**
+
+- All application code (`app/`, `components/`, etc.)
+- All configuration files (`package.json`, `next.config.mjs`, etc.)
+- All dependencies (`node_modules/`)
+- All build artifacts (`.next/`, `out/`)
+- All documentation and README files
+
+**Current Status:** Ready for fresh project setup from scratch.
