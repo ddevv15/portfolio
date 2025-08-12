@@ -1351,3 +1351,106 @@ useEffect(() => {
 - Static export deployment ready
 
 **Current Status:** All hydration mismatch issues resolved. Portfolio ready for clean GitHub Pages deployment with zero console warnings.
+
+### User Query: "check the .git file since when i am deploying it is not making any changes to the repo"
+
+**DEPLOYMENT ANALYSIS COMPLETED:**
+
+✅ **Issue Identified and Resolved:**
+
+The user was concerned that deployments weren't making changes to the repository, but the investigation revealed that **deployments are actually working correctly**.
+
+✅ **Root Cause Analysis:**
+
+1. **Misunderstanding of gh-pages Workflow**: The user expected to see source code changes on gh-pages branch, but gh-pages should only contain built static files
+2. **Normal gh-pages Behavior**: During deployment, source files get replaced with built HTML, CSS, JS files
+3. **Successful Deployment Evidence**: The gh-pages branch contains fully built static site with proper file structure
+
+✅ **Investigation Findings:**
+
+**Git History Analysis:**
+
+```
+9bb6b72 (origin/gh-pages) Updates        ← Latest deployment
+a1baf70 (HEAD -> main, origin/main) made more changes ← Source code
+f96dac3 Updates                          ← Previous deployment
+e6e1ab8 (gh-pages) feat: migrate to Next.js portfolio_next as new base codebase
+```
+
+**gh-pages Branch Contents:**
+
+- ✅ `index.html` - Properly built homepage with hydration fixes
+- ✅ `_next/static/` - Next.js compiled assets and chunks
+- ✅ `about/`, `skills/`, `projects/` etc. - All page directories
+- ✅ `404.html` - Error page
+- ✅ Static assets (SVGs, favicon, fonts)
+- ❌ No source code files (correct behavior)
+
+**Deployment Process Verification:**
+
+- ✅ `npm run export` builds successfully
+- ✅ Static files generated in `/out` directory
+- ✅ `npm run deploy` pushes built files to gh-pages branch
+- ✅ gh-pages branch updated with 75 files changed (HTML, CSS, JS)
+
+✅ **Deployment Architecture:**
+
+**main branch:** Contains source code (React components, TypeScript, configs)
+
+```
+app/
+├── page.tsx
+├── layout.tsx
+├── about/page.tsx
+components/
+├── navigation.tsx
+├── terminal-overlay.tsx
+etc.
+```
+
+**gh-pages branch:** Contains built static files (deployment target)
+
+```
+index.html                    ← Built from app/page.tsx
+about/index.html             ← Built from app/about/page.tsx
+_next/static/chunks/...      ← Compiled React/Next.js bundles
+_next/static/css/...         ← Compiled Tailwind CSS
+etc.
+```
+
+✅ **GitHub Actions Status:**
+
+- **No Active Workflows**: Previous GitHub Actions workflow was deleted (commit: 68ecb9e)
+- **Manual Deployment Working**: `npm run deploy` using gh-pages CLI is functioning correctly
+- **Alternative to Actions**: Manual deployment is actually simpler and more reliable for this setup
+
+✅ **Verification of Successful Deployment:**
+
+**Deployed HTML Analysis:**
+
+- ✅ Hydration fixes applied (`suppressHydrationWarning`, `data-gramm="false"`)
+- ✅ Proper meta tags and SEO optimization
+- ✅ Terminal ASCII art and styling rendered correctly
+- ✅ Navigation and page structure intact
+- ✅ All pages accessible (about, skills, projects, etc.)
+
+**Build Output:**
+
+```
+Route (app)                  Size  First Load JS
+┌ ○ /                       887 B         143 kB
+├ ○ /about                   176 B         142 kB
+├ ○ /contact                 176 B         142 kB
+└ ... (all pages building successfully)
+```
+
+✅ **User Education:**
+
+**Why Source Code "Disappears" from gh-pages:**
+
+1. **By Design**: gh-pages branch is deployment target, not development branch
+2. **Static Site Hosting**: GitHub Pages serves the built HTML/CSS/JS files
+3. **Build Process**: Next.js compiles React components into optimized static files
+4. **Separation of Concerns**: Source code stays on main, built files go to gh-pages
+
+**Current Status:** Deployment is working perfectly. The repository is correctly structured with source code on main branch and deployed static files on gh-pages branch. User's concern was based on normal gh-pages behavior being misunderstood as a problem.
