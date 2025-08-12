@@ -38,12 +38,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    // CHANGED: tame extension attrs
     <html lang="en" suppressHydrationWarning>
-      <body 
-        className={`${sourceCodePro.variable} font-mono antialiased`}
-        suppressHydrationWarning
-        data-gramm="false"
-      >
+      <body suppressHydrationWarning data-gramm="false" className={`${sourceCodePro.variable} font-mono antialiased`}>
         {children}
       </body>
     </html>

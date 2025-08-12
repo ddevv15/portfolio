@@ -1,13 +1,7 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+// CHANGED: minimal static export; no basePath/assetPrefix for shahdev.com
+/** @type {import('next').NextConfig} */
+module.exports = {
   output: 'export',
   trailingSlash: true,
-  images: {
-    unoptimized: true
-  },
-  basePath: process.env.GITHUB_PAGES ? '/portfolio' : '',
-  assetPrefix: process.env.GITHUB_PAGES ? '/portfolio/' : '',
+  images: { unoptimized: true },
 };
-
-export default nextConfig;
