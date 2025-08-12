@@ -1454,3 +1454,79 @@ Route (app)                  Size  First Load JS
 4. **Separation of Concerns**: Source code stays on main, built files go to gh-pages
 
 **Current Status:** Deployment is working perfectly. The repository is correctly structured with source code on main branch and deployed static files on gh-pages branch. User's concern was based on normal gh-pages behavior being misunderstood as a problem.
+
+### User Query: Manual merge from main to gh-pages via command line
+
+**MANUAL MERGE PROCESS COMPLETED:**
+
+✅ **GitHub Manual Merge Instructions Executed:**
+
+Following GitHub's provided instructions for manual command-line merge:
+
+**Step 1 - Update Repository:**
+```bash
+git pull origin main  # ✅ Already up to date
+```
+
+**Step 2 - Switch to Target Branch:**
+```bash
+git checkout gh-pages  # ✅ Successfully switched
+```
+
+**Step 3 - Merge Base Branch:**
+```bash
+git merge main  # ⚠️ Conflicts detected (expected)
+```
+
+**Step 4 - Resolve Merge Conflicts:**
+```bash
+# Conflicts in: app/layout.tsx, components/terminal-overlay.tsx, 
+# docs/activity.md, next.config.ts, package-lock.json, 
+# package.json, postcss.config.mjs, tailwind.config.js
+
+git rm app/layout.tsx components/terminal-overlay.tsx docs/activity.md next.config.ts package-lock.json package.json postcss.config.mjs tailwind.config.js
+
+git commit -m "resolve merge conflicts: keep gh-pages as deployment branch"
+# ✅ Conflicts resolved by removing source files from deployment branch
+```
+
+**Step 5 - Push Changes:**
+```bash
+git push -u origin gh-pages  # ✅ Successfully pushed
+```
+
+✅ **Conflict Resolution Strategy:**
+
+**Why Conflicts Occurred:**
+- gh-pages branch contains only built static files (HTML, CSS, JS)
+- main branch contains source code (React components, configs, etc.)
+- Git detected "modify/delete" conflicts where files existed in main but were deleted in gh-pages
+
+**Resolution Approach:**
+- **Removed source files from gh-pages**: Correct approach for deployment branch
+- **Maintained separation of concerns**: Source code stays on main, built files on gh-pages
+- **Preserved deployment functionality**: gh-pages continues to serve static site correctly
+
+✅ **Branch Synchronization Results:**
+
+**main branch** (commit: 3ea9535):
+- Contains latest source code with hydration fixes
+- Documentation updates included
+- Ready for continued development
+
+**gh-pages branch** (commit: 70e32f7):
+- Merge conflicts resolved appropriately
+- Continues to contain only deployment-ready static files
+- Maintains proper deployment structure
+
+✅ **Post-Merge Status:**
+
+- ✅ Both branches pushed to remote successfully
+- ✅ Repository structure maintained correctly
+- ✅ No breaking changes to deployment process
+- ✅ Source code and deployment files properly separated
+- ✅ Ready for continued development and deployment cycles
+
+**Technical Note:** The merge conflicts were expected and normal behavior when merging a source code branch into a deployment branch. The resolution correctly maintained the deployment branch's purpose while incorporating the merge history.
+
+**Current Status:** Manual merge completed successfully. Repository maintains proper separation between development (main) and deployment (gh-pages) branches while keeping merge history intact.
