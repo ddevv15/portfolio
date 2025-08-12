@@ -2,6 +2,46 @@
 
 ## 2024-12-19
 
+### User Query: "after deploying my site looks something like this which is wrong? what could be the possible issue here?"
+
+**Analysis Performed:**
+
+- Identified that deployed site was showing white background and black text instead of terminal theme
+- Analyzed generated CSS file (`out/_next/static/css/abc7b4c0bbf986a8.css`) to understand the issue
+- Found that CSS variables were defined but hardcoded colors were overriding them
+- Discovered that `html` and `body` elements were using hardcoded `#000000` and `#00ff00` colors instead of CSS variables
+
+**Root Cause:**
+The CSS was defining CSS variables for the dark theme but the actual styles were using hardcoded colors that were overriding the CSS variables. This meant the dark theme wasn't being applied correctly.
+
+**Solution Applied:**
+
+1. **Updated `app/globals.css`** to use CSS variables instead of hardcoded colors:
+
+   - Changed `background-color: #000000;` to `background-color: hsl(var(--background));`
+   - Changed `color: #00ff00;` to `color: hsl(var(--foreground));`
+   - Updated ASCII art styling to use `hsl(var(--primary))` instead of hardcoded green
+   - Updated scrollbar colors to use CSS variables
+   - Updated selection colors to use CSS variables
+
+2. **Verified CSS variable definitions** were correct in the `:root` and `.dark` sections
+
+3. **Built and deployed** the project to test the fix
+
+**Result:**
+
+- ✅ Terminal theme now properly applied on deployed site
+- ✅ Dark background and green text working correctly
+- ✅ ASCII art styling preserved with proper green color
+- ✅ All CSS variables properly integrated throughout the application
+
+**Technical Details:**
+
+- CSS variables defined in `:root` and `.dark` sections were working correctly
+- Issue was that hardcoded colors in `html` and `body` selectors were overriding the CSS variables
+- Solution involved replacing all hardcoded colors with `hsl(var(--variable-name))` syntax
+- This ensures the dark theme is properly applied when the `dark` class is present on the body element
+
 ### User Query: "why is the app taking so long to turn on?"
 
 **Analysis Performed:**
@@ -893,3 +933,99 @@ Published
 - **Maintainability**: Clean deployment process with automated cleanup
 
 **Current Status:** Portfolio successfully deployed to GitHub Pages with optimized asset size. Gallery now contains only essential images, and deployment process is streamlined for future updates.
+
+## 2025-01-02
+
+### User Query: "scan the code base for me"
+
+**CODEBASE SCAN COMPLETED:**
+
+✅ **Project Architecture Analysis:**
+
+**Technology Stack:**
+
+- **Framework**: Next.js 15.2.4 with App Router
+- **Language**: TypeScript with strict mode
+- **Styling**: Tailwind CSS with custom terminal theme
+- **UI Components**: shadcn/ui + Radix UI primitives
+- **Build Tool**: Next.js with Turbopack for development
+- **Deployment**: GitHub Pages with static export
+
+**Project Structure:**
+
+```
+portfolio/
+├── app/                     # Next.js App Router
+│   ├── components/
+│   │   ├── custom/         # Custom portfolio components (10 .tsx files)
+│   │   └── ui/             # shadcn/ui components (47 components)
+│   ├── about|skills|projects|experience|education|contact/  # Page routes
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx            # Terminal-style homepage
+│   └── globals.css         # Global styles with terminal theme
+├── components/             # Shared layout components
+│   ├── page-layout.tsx     # Unified page wrapper
+│   ├── navigation.tsx      # Responsive navigation
+│   └── terminal-overlay.tsx # Modal terminal interface
+├── docs/activity.md        # Comprehensive project log
+└── public/                 # Static assets (22MB optimized)
+```
+
+**Key Features Implemented:**
+
+- **Hybrid Architecture**: Traditional navigation + terminal overlay
+- **Terminal Interface**: Command-line navigation with Ctrl+` hotkey
+- **Responsive Design**: Mobile-friendly with adaptive layouts
+- **Professional Content**: Complete portfolio with real project data
+- **Performance Optimized**: 145kB bundle size, static export ready
+- **TypeScript Migration**: 100% TypeScript with strict typing
+- **Git LFS Integration**: Large asset management
+- **SEO Optimized**: Meta tags, proper routing structure
+
+**Current Deployment Status:**
+
+- Successfully builds and exports static files
+- GitHub Pages deployment configured but with routing issues
+- Repository size optimized from 13GB to manageable size
+- All dependencies secure (0 vulnerabilities)
+
+### User Query: GitHub Pages Deployment Issue Analysis
+
+**DEPLOYMENT ISSUE ANALYSIS:**
+
+❌ **Current GitHub Pages Structure Problem:**
+
+The gh-pages branch shows incorrect nesting:
+
+```
+└── ddevv15-portfolio/    # ← Wrong: Double nesting
+    ├── 404.html
+    ├── index.html
+    ├── about/index.html
+    └── _next/static/
+```
+
+**Expected Structure:**
+
+```
+└── (root)
+    ├── 404.html
+    ├── index.html
+    ├── about/index.html
+    └── _next/static/
+```
+
+**Root Cause Identified:**
+
+- **Double BasePath Application**: basePath being applied twice in deployment
+- **Mixed Build Artifacts**: Both static HTML and runtime chunks present
+- **Incorrect gh-pages Deployment**: Creating nested directory instead of root deployment
+
+**FIXES IMPLEMENTED:**
+
+1. **Updated next.config.mjs** with proper GitHub Pages configuration
+2. **Added deployment scripts** with GITHUB_PAGES environment variable
+3. **Created GitHub Actions workflow** for automated deployment
+4. **Configured proper basePath/assetPrefix** for /portfolio route
+
+**Status**: Deployment fixes applied, waiting for testing to confirm resolution.

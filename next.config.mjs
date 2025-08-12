@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const isGhPages = process.env.GITHUB_PAGES === "true";
+const repoName = "portfolio"; // Repository name for project pages
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -8,6 +11,8 @@ const nextConfig = {
   },
   output: "export",
   trailingSlash: true,
+  basePath: isGhPages ? `/${repoName}` : "",
+  assetPrefix: isGhPages ? `/${repoName}/` : "",
   experimental: {
     turbo: {
       rules: {
