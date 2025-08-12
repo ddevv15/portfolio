@@ -4,6 +4,12 @@ import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 
+// Client-safe timestamp function
+const getClientTimestamp = () => {
+  if (typeof window === 'undefined') return ''
+  return new Date().toLocaleTimeString()
+}
+
 interface Command {
   input: string
   output: string[]
@@ -20,9 +26,15 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
   const [history, setHistory] = useState<Command[]>([])
   const [isTyping, setIsTyping] = useState(false)
   const [showCursor, setShowCursor] = useState(true)
+  const [isMounted, setIsMounted] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const terminalRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
+
+  // Track mounted state to prevent hydration mismatches
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const commands = {
     help: () => [
@@ -119,7 +131,7 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
 
   // Welcome message when terminal opens
   useEffect(() => {
-    if (isOpen && history.length === 0) {
+    if (isOpen && history.length === 0 && isMounted) {
       const welcomeCommand: Command = {
         input: '',
         output: [
@@ -128,18 +140,18 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
           'Use navigation commands to jump between pages.',
           "═══════════════════════════════════════════════",
         ],
-        timestamp: new Date().toLocaleTimeString(),
+        timestamp: getClientTimestamp(),
       }
       setHistory([welcomeCommand])
     }
-  }, [isOpen, history.length])
+  }, [isOpen, history.length, isMounted])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!input.trim()) return
 
     const command = input.trim().toLowerCase()
-    const timestamp = new Date().toLocaleTimeString()
+    const timestamp = getClientTimestamp()
 
     setIsTyping(true)
 
