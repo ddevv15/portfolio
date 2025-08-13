@@ -143,12 +143,25 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
     const command = input.trim().toLowerCase()
     const timestamp = new Date().toLocaleTimeString()
 
+    // Early return for clear command - reset history and skip normal logging
+    if (command === "clear") {
+      setHistory([])
+      setInput("")
+      // Immediately refocus the input
+      setTimeout(() => {
+        if (inputRef.current && isOpen) {
+          inputRef.current.focus()
+        }
+      }, 0)
+      return
+    }
+
     setIsTyping(true)
 
     let output: string[] = []
 
     if (command in commands) {
-      const result = (commands as any)[command]()
+      const result = (commands as Record<string, () => string[]>)[command]()
       if (result) output = result
     } else if (command === "") {
       output = []

@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="space-y-6 text-green-300 leading-relaxed">
           <p className="text-lg">
             Software Engineer focused on scalable React apps and legacy‑to‑modern migrations. 
-            Led a government‑scale healthcare platform's shift from AngularJS to React, cutting 
+            Led a government‑scale healthcare platform&apos;s shift from AngularJS to React, cutting 
             load times by 10% and boosting modularity.
           </p>
           
@@ -32,7 +32,7 @@ export default function AboutPage() {
           </p>
           
           <div className="mt-8 p-6 border border-green-400 rounded">
-            <h2 className="text-xl font-semibold text-green-400 mb-4">What I'm Working On</h2>
+            <h2 className="text-xl font-semibold text-green-400 mb-4">What I&apos;m Working On</h2>
             <ul className="space-y-2">
               <li>• Building scalable React applications with modern tooling</li>
               <li>• Exploring cloud architecture and DevOps practices</li>
@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="mt-8 p-6 border border-green-400 rounded">
             <h2 className="text-xl font-semibold text-green-400 mb-4">Beyond Code</h2>
             <p>
-              When I'm not coding, you can find me officiating intramural sports, exploring new 
+              When I&apos;m not coding, you can find me officiating intramural sports, exploring new 
               technologies, or working on personal projects that solve real-world problems.
             </p>
           </div>

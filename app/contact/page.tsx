@@ -110,11 +110,11 @@ export default function ContactPage() {
           </div>
           
           <div className="border border-green-400 rounded p-6">
-            <h2 className="text-xl font-semibold text-green-400 mb-4">Let's Collaborate</h2>
+            <h2 className="text-xl font-semibold text-green-400 mb-4">Let&apos;s Collaborate</h2>
             <div className="space-y-4 text-green-300">
               <p>
-                I'm always interested in discussing new opportunities, innovative projects, 
-                and potential collaborations. Whether you're looking for:
+                I&apos;m always interested in discussing new opportunities, innovative projects, 
+                and potential collaborations. Whether you&apos;re looking for:
               </p>
               
               <ul className="space-y-2">
