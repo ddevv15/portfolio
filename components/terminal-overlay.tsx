@@ -1,14 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
-import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import type React from "react"
 
-// Client-safe timestamp function
-const getClientTimestamp = () => {
-  if (typeof window === 'undefined') return ''
-  return new Date().toLocaleTimeString()
-}
+import { useState, useEffect, useRef } from "react"
+import { useRouter } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface Command {
   input: string
@@ -26,15 +22,9 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
   const [history, setHistory] = useState<Command[]>([])
   const [isTyping, setIsTyping] = useState(false)
   const [showCursor, setShowCursor] = useState(true)
-  const [isMounted, setIsMounted] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const terminalRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-
-  // Track mounted state to prevent hydration mismatches
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
 
   const commands = {
     help: () => [
@@ -55,43 +45,43 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
     ],
 
     about: () => {
-      router.push('/about')
+      router.push("/about")
       onClose()
       return ["Navigating to about page..."]
     },
 
     skills: () => {
-      router.push('/skills')
+      router.push("/skills")
       onClose()
       return ["Navigating to skills page..."]
     },
 
     projects: () => {
-      router.push('/projects')
+      router.push("/projects")
       onClose()
       return ["Navigating to projects page..."]
     },
 
     experience: () => {
-      router.push('/experience')
+      router.push("/experience")
       onClose()
       return ["Navigating to experience page..."]
     },
 
     education: () => {
-      router.push('/education')
+      router.push("/education")
       onClose()
       return ["Navigating to education page..."]
     },
 
     contact: () => {
-      router.push('/contact')
+      router.push("/contact")
       onClose()
       return ["Navigating to contact page..."]
     },
 
     home: () => {
-      router.push('/')
+      router.push("/")
       onClose()
       return ["Navigating to home page..."]
     },
@@ -131,27 +121,27 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
 
   // Welcome message when terminal opens
   useEffect(() => {
-    if (isOpen && history.length === 0 && isMounted) {
+    if (isOpen && history.length === 0) {
       const welcomeCommand: Command = {
-        input: '',
+        input: "",
         output: [
           "Terminal overlay activated!",
           'Type "help" to see available commands.',
-          'Use navigation commands to jump between pages.',
+          "Use navigation commands to jump between pages.",
           "═══════════════════════════════════════════════",
         ],
-        timestamp: getClientTimestamp(),
+        timestamp: new Date().toLocaleTimeString(),
       }
       setHistory([welcomeCommand])
     }
-  }, [isOpen, history.length, isMounted])
+  }, [isOpen, history.length])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!input.trim()) return
 
     const command = input.trim().toLowerCase()
-    const timestamp = getClientTimestamp()
+    const timestamp = new Date().toLocaleTimeString()
 
     setIsTyping(true)
 
@@ -178,7 +168,7 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
     setHistory((prev) => [...prev, newCommand])
     setInput("")
     setIsTyping(false)
-    
+
     // Immediately refocus the input after command processing
     setTimeout(() => {
       if (inputRef.current && isOpen) {
@@ -210,28 +200,25 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-2 sm:p-4"
         onClick={onClose}
       >
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-black border border-green-400 rounded w-full max-w-4xl h-96 flex flex-col"
+          className="bg-black border border-green-400 rounded w-full max-w-4xl h-[85vh] sm:h-96 flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Terminal Header */}
-          <div className="flex items-center justify-between p-4 border-b border-green-400">
+          <div className="flex items-center justify-between p-3 sm:p-4 border-b border-green-400">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
             </div>
-            <div className="text-sm text-green-400">Terminal Overlay</div>
-            <button
-              onClick={onClose}
-              className="text-green-400 hover:text-green-300 text-sm"
-            >
+            <div className="text-xs sm:text-sm text-green-400">Terminal</div>
+            <button onClick={onClose} className="text-green-400 hover:text-green-300 text-sm sm:text-base p-1">
               ✕
             </button>
           </div>
@@ -239,7 +226,7 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
           {/* Terminal Content */}
           <div
             ref={terminalRef}
-            className="flex-1 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-green-400 scrollbar-track-transparent"
+            className="flex-1 overflow-y-auto p-3 sm:p-4 scrollbar-thin scrollbar-thumb-green-400 scrollbar-track-transparent"
             onClick={handleTerminalClick}
           >
             {/* Command History */}
@@ -250,15 +237,15 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="mb-4"
+                  className="mb-3 sm:mb-4"
                 >
                   {cmd.input && (
-                    <div className="flex items-center space-x-2 mb-2">
-                      <span className="text-green-300">dev@portfolio:</span>
-                      <span className="text-blue-400">~</span>
-                      <span className="text-white">$</span>
-                      <span className="text-green-400">{cmd.input}</span>
-                      <span className="text-gray-500 text-xs ml-auto">{cmd.timestamp}</span>
+                    <div className="flex items-center space-x-1 sm:space-x-2 mb-2 flex-wrap">
+                      <span className="text-green-300 text-xs sm:text-sm">dev@portfolio:</span>
+                      <span className="text-blue-400 text-xs sm:text-sm">~</span>
+                      <span className="text-white text-xs sm:text-sm">$</span>
+                      <span className="text-green-400 text-xs sm:text-sm break-all">{cmd.input}</span>
+                      <span className="text-gray-500 text-xs ml-auto hidden sm:inline">{cmd.timestamp}</span>
                     </div>
                   )}
                   {cmd.output.map((line, lineIndex) => (
@@ -267,7 +254,7 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: lineIndex * 0.02 }}
-                      className="text-green-400 whitespace-pre-wrap leading-relaxed text-sm"
+                      className="text-green-400 whitespace-pre-wrap leading-relaxed text-xs sm:text-sm break-words"
                     >
                       {line}
                     </motion.div>
@@ -277,23 +264,25 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
             </AnimatePresence>
 
             {/* Current Input */}
-            <form onSubmit={handleSubmit} className="flex items-center space-x-2">
-              <span className="text-green-300">dev@portfolio:</span>
-              <span className="text-blue-400">~</span>
-              <span className="text-white">$</span>
-              <div className="flex-1 relative">
+            <form onSubmit={handleSubmit} className="flex items-center space-x-1 sm:space-x-2 flex-wrap sm:flex-nowrap">
+              <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+                <span className="text-green-300 text-xs sm:text-sm">dev@portfolio:</span>
+                <span className="text-blue-400 text-xs sm:text-sm">~</span>
+                <span className="text-white text-xs sm:text-sm">$</span>
+              </div>
+              <div className="flex-1 relative min-w-0">
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  className={`bg-transparent outline-none w-full font-mono text-sm ${showCursor ? "text-transparent" : "text-green-400"}`}
+                  className={`bg-transparent outline-none w-full font-mono text-xs sm:text-sm ${showCursor ? "text-transparent" : "text-green-400"}`}
                   disabled={isTyping}
                   autoComplete="off"
                   spellCheck="false"
                 />
                 {showCursor && (
-                  <span className="absolute left-0 text-green-400 pointer-events-none text-sm">
+                  <span className="absolute left-0 text-green-400 pointer-events-none text-xs sm:text-sm">
                     {input}
                     <span className="bg-green-400">█</span>
                   </span>
@@ -303,7 +292,11 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
 
             {/* Typing Indicator */}
             {isTyping && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-400 mt-2 text-sm">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-green-400 mt-2 text-xs sm:text-sm"
+              >
                 Processing command...
               </motion.div>
             )}

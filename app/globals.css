@@ -4,12 +4,66 @@
 
 :root {
   --font-mono: "Source Code Pro", monospace;
+  
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border-color: hsl(var(--border));
 }
 
 html,
@@ -19,6 +73,7 @@ body {
   background-color: #000000;
   color: #00ff00;
   font-family: var(--font-mono);
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 body {
@@ -41,7 +96,13 @@ body {
 
 /* Webkit scrollbar for Chrome/Safari */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -79,11 +140,12 @@ pre {
   font-family: var(--font-mono);
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  .font-mono {
-    font-size: 14px;
-  }
+/* ASCII Art styles */
+.ascii-art {
+  color: hsl(var(--primary));
+  font-family: var(--font-mono);
+  line-height: 1;
+  white-space: pre;
 }
 
 /* Animation for cursor */
@@ -102,6 +164,10 @@ pre {
   animation: blink 1s infinite;
 }
 
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -114,20 +180,49 @@ html {
 }
 
 /* Responsive font sizing */
-@media (max-width: 640px) {
+@media (max-width: 374px) {
   body {
     font-size: 12px;
   }
 }
 
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (min-width: 375px) and (max-width: 640px) {
   body {
     font-size: 14px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;
   }
 }
 
 @media (min-width: 1025px) {
   body {
     font-size: 16px;
+  }
+}
+
+/* Touch improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (max-width: 767px) {
+  input[type="text"] {
+    font-size: 16px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 374px) {
+  .text-xs {
+    font-size: 0.65rem;
   }
 }
