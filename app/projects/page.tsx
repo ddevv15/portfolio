@@ -4,11 +4,19 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Projects | Dev Shah",
   description:
-    "Featured projects by Dev Shah - Face recognition systems, weather apps, task managers, and security tools.",
+    "Featured projects by Dev Shah - React chess game, face recognition systems, weather apps, task managers, and security tools.",
 }
 
 export default function ProjectsPage() {
   const projects = [
+    {
+      name: "React Chess Game",
+      dates: "August 2025",
+      stack: ["React", "CSS Modules", "Jest", "GitHub Pages"],
+      description: "A sleek, modern chess game with full rule support, real-time legal move validation, check/checkmate detection, and responsive design with smooth animations.",
+      link: "https://ddevv15.github.io/ChessGame",
+      icon: "♟️",
+    },
     {
       name: "Faceway – Kiosk Face Recognition",
       dates: "Mar 2025 – Jun 2025",
