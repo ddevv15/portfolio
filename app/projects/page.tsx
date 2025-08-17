@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Projects | Dev Shah",
   description:
-    "Featured projects by Dev Shah - React chess game, face recognition systems, weather apps, task managers, security tools, and JavaFX Blackjack game.",
+    "Featured projects by Dev Shah - React chess game, face recognition systems, weather apps, task managers, security tools, JavaFX Blackjack game, OpenStreetMaps navigation system, priority queue implementation, MineSweeper ASCII game, and IMDB data explorer.",
 }
 
 export default function ProjectsPage() {
@@ -38,6 +38,7 @@ export default function ProjectsPage() {
       dates: "Sep 2024 – Dec 2024",
       stack: ["React", "Firebase"],
       description: "Customizable dashboards, real‑time feedback and color‑coded categories.",
+      link: "https://github.com/ddevv15/TaskFlow",
       icon: "📋",
     },
     {
@@ -54,6 +55,38 @@ export default function ProjectsPage() {
       description: "A complete Blackjack game with betting system, dealer logic, deck management, and comprehensive GUI. Features standard 52-card deck, hit/stand actions, and full game rules.",
       link: "https://github.com/ddevv15/BlackJack",
       icon: "🃏",
+    },
+    {
+      name: "OpenStreetMaps Navigation System",
+      dates: "Fall 2023",
+      stack: ["C++", "XML Parsing", "Dijkstra's Algorithm", "TinyXML2"],
+      description: "Navigation system using real OpenStreetMap data to find shortest paths between UIC campus buildings. Features graph construction with adjacency lists, XML parsing, and efficient pathfinding algorithms.",
+      link: "https://github.com/ddevv15/OpenStreetMaps",
+      icon: "🗺️",
+    },
+    {
+      name: "Priority Queue Implementation",
+      dates: "Fall 2023",
+      stack: ["C++", "Binary Search Trees", "Templates", "Catch Framework"],
+      description: "Custom priority queue using binary search tree with duplicate priority handling. Features templated design, iterator functions, memory management, and comprehensive testing with Catch framework.",
+      link: "https://github.com/ddevv15/PriorityQueue",
+      icon: "🔢",
+    },
+    {
+      name: "MineSweeper ASCII Game",
+      dates: "Spring 2023",
+      stack: ["C++", "Arrays", "Recursion", "Game Logic"],
+      description: "Terminal-based MineSweeper game with complete game mechanics including flagging, revealing, and recursive auto-reveal. Features 8x5 grid, mine detection algorithms, and command-based interface.",
+      link: "https://github.com/ddevv15/MineSweeper",
+      icon: "💣",
+    },
+    {
+      name: "IMDB Data Explorer",
+      dates: "Fall 2022",
+      stack: ["C++", "File I/O", "Data Structures", "TSV Parsing"],
+      description: "Interactive movie database search tool processing TSV files with 3M+ records. Features movie and actor search functionality, cast information display, and efficient data loading with error handling.",
+      link: "https://github.com/ddevv15/IMDB",
+      icon: "🎬",
     },
   ]
 
