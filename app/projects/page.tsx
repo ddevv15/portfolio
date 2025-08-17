@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Projects | Dev Shah",
   description:
-    "Featured projects by Dev Shah - React chess game, face recognition systems, weather apps, task managers, and security tools.",
+    "Featured projects by Dev Shah - React chess game, face recognition systems, weather apps, task managers, security tools, and JavaFX Blackjack game.",
 }
 
 export default function ProjectsPage() {
@@ -46,6 +46,14 @@ export default function ProjectsPage() {
       stack: ["Python", "GPT‑2"],
       description: "Automated security audit detecting 100+ flaws and implementing SOC‑2 controls.",
       icon: "🔒",
+    },
+    {
+      name: "JavaFX Blackjack Game",
+      dates: "Fall 2023",
+      stack: ["Java", "JavaFX", "Maven", "JUnit"],
+      description: "A complete Blackjack game with betting system, dealer logic, deck management, and comprehensive GUI. Features standard 52-card deck, hit/stand actions, and full game rules.",
+      link: "https://github.com/ddevv15/BlackJack",
+      icon: "🃏",
     },
   ]
 
