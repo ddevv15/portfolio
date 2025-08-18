@@ -1716,3 +1716,96 @@ Route (app)                                 Size  First Load JS
 - **Custom Domain**: Ready for `shahdev.com` with root path asset loading
 
 **Current Status:** Custom domain asset path issue resolved. GitHub Actions workflow no longer injects automatic basePath, allowing assets to load correctly from root path on shahdev.com. Enhanced CSS styling and build configuration applied successfully.
+
+## 2025-01-02 (Continued)
+
+### User Query: "you see how my name dev shah is being displayed twice, i wish to remove one of them and only keep this and remove the h1 tag"
+
+**DUPLICATE NAME REMOVAL COMPLETED:**
+
+✅ **Issue Identified:**
+
+- User's name "Dev Shah" was displayed twice on the homepage
+- Once in the ASCII art (desired)
+- Once in an h1 tag (unwanted duplicate)
+
+✅ **Solution Applied:**
+
+- **Removed h1 tag** that displayed "Dev Shah" text
+- **Kept ASCII art version** of the name as the primary display
+- **Added unique IDs** to all div elements as per user rules:
+  - `home-container` - main container
+  - `home-content` - content wrapper
+  - `ascii-art-container` - ASCII art section
+  - `title-description` - subtitle text
+  - `welcome-text` - welcome message section
+  - `navigation-grid` - navigation buttons grid
+
+✅ **Result:**
+
+- Name now appears only once (in ASCII art)
+- Cleaner, less cluttered homepage design
+- All div elements have unique IDs for future styling changes
+- Maintains professional appearance without redundancy
+
+**Current Status:** Duplicate name issue resolved. Homepage now displays "Dev Shah" only once in the ASCII art, with all div elements properly identified for future modifications.
+
+### User Query: "all the href elements in the project should open up on a new tab"
+
+**EXTERNAL LINK NEW TAB IMPLEMENTATION COMPLETED:**
+
+✅ **Task Understanding:**
+
+- User requested all href elements in the project to open in new tabs
+- This applies to external links (GitHub, LinkedIn, certifications, etc.)
+- Internal navigation should remain in the same tab for proper user experience
+
+✅ **Links Updated with target="\_blank" and rel="noopener noreferrer":**
+
+1. **Homepage Navigation Links** (`app/page.tsx`):
+
+   - About, Skills, Projects, Experience, Education, Contact links
+   - All now open in new tabs for better user experience
+
+2. **Project External Links** (`app/projects/page.tsx`):
+
+   - GitHub repository links for all projects
+   - Live demo links (Chess Game, WeatherGenie)
+   - Already had target="\_blank" implemented
+
+3. **Certification Links** (`app/skills/page.tsx`):
+
+   - HackerRank certification verification links
+   - Google Drive certification documents
+   - CITI Program verification links
+   - All now open in new tabs
+
+4. **Contact Page Links** (`app/contact/page.tsx`):
+   - LinkedIn profile link
+   - GitHub profile link
+   - Personal website link (shahdev.com)
+   - All now open in new tabs
+
+✅ **Security Best Practices Applied:**
+
+- **target="\_blank"**: Opens links in new tabs/windows
+- **rel="noopener noreferrer"**: Prevents security vulnerabilities
+  - `noopener`: Prevents new page from accessing window.opener
+  - `noreferrer`: Prevents passing referrer information
+
+✅ **Internal Navigation Preserved:**
+
+- Next.js `Link` components for internal pages remain unchanged
+- Navigation between portfolio sections stays in same tab
+- Terminal overlay navigation maintains single-page experience
+- Proper user experience for portfolio browsing
+
+✅ **External Links Enhanced:**
+
+- **GitHub Repositories**: All project links open in new tabs
+- **Social Media**: LinkedIn, GitHub profiles open in new tabs
+- **Certifications**: Verification links open in new tabs
+- **Live Demos**: Project demos open in new tabs
+- **Personal Website**: shahdev.com opens in new tab
+
+**Current Status:** All external href elements now open in new tabs with proper security attributes. Internal navigation remains optimized for single-page portfolio experience. Enhanced user experience for external resource access.

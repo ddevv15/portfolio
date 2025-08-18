@@ -73,6 +73,8 @@ export default function ContactPage() {
                       {item.href ? (
                         <a 
                           href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-green-400 hover:text-green-300 transition-colors"
                         >
                           {item.value}
