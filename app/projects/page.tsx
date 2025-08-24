@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   const projects = [
     {
+      name: "MCP Chat",
+      dates: "January 2025",
+      stack: ["Python", "Anthropic API", "MCP Protocol", "CLI", "Document Retrieval"],
+      description: "A command-line interface application that enables interactive chat capabilities with AI models through the Anthropic API. Features document retrieval, command-based prompts, and extensible tool integrations via the MCP (Model Control Protocol) architecture.",
+      link: "https://github.com/ddevv15/Introduction-to-model-context-protocol",
+      icon: "🤖",
+    },
+    {
       name: "React Chess Game",
       dates: "August 2025",
       stack: ["React", "CSS Modules", "Jest", "GitHub Pages"],
